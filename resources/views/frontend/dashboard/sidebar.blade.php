@@ -2,7 +2,6 @@
     $id = Auth::user()->id;
     $profileData = App\Models\User::find($id);
 @endphp
-
 <div class="col-md-3">
     <div class="osahan-account-page-left shadow-sm rounded bg-white h-100">
        <div class="border-bottom p-4">
@@ -13,24 +12,32 @@
                    <h6 class="mb-2">{{$profileData->name}}</h6>
                    <p class="mb-1">{{$profileData->phone}}</p>
                    <p>{{$profileData->email}}</p>
-                   <p class="mb-0 text-black font-weight-bold"><a class="text-primary mr-3" data-toggle="modal" data-target="#edit-profile-modal" href="#"><i class="icofont-ui-edit"></i> EDIT</a></p>
+           
                 </div>
              </div>
           </div>
        </div>
        <ul class="nav nav-tabs flex-column border-0 pt-4 pl-4 pb-4" id="myTab" role="tablist">
-          <li class="nav-item">
-             <a class="nav-link {{Route::currentRouteName() === 'dashboard' ? 'active' : ''}}" id="orders-tab"  href="{{route('dashboard')}}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Profile</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link {{Route::currentRouteName() === 'change.password' ? 'active' : ''}}" id="change-tab" href="{{route('change.password')}}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Change Passowrd</a>
+        <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'dashboard' ? 'active' : '' }}"  href="{{ route('dashboard') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Profile</a>
          </li>
+
+         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'change.password' ? 'active' : '' }}"  href="{{ route('change.password') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Change Password </a>
+         </li>
+
+         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'all.wishlist' ? 'active' : '' }}"  href="{{ route('all.wishlist') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Favourites </a>
+         </li>
+
+         <li class="nav-item">
+            <a class="nav-link {{ Route::currentRouteName() === 'user.order.list' ? 'active' : '' }}"  href="{{ route('user.order.list') }}" role="tab" aria-controls="orders" aria-selected="true"><i class="icofont-food-cart"></i> Orders </a>
+         </li>
+
           <li class="nav-item">
              <a class="nav-link" id="offers-tab" data-toggle="tab" href="#offers" role="tab" aria-controls="offers" aria-selected="false"><i class="icofont-sale-discount"></i> Offers</a>
           </li>
-          <li class="nav-item">
-             <a class="nav-link" id="favourites-tab" data-toggle="tab" href="#favourites" role="tab" aria-controls="favourites" aria-selected="false"><i class="icofont-heart"></i> Favourites</a>
-          </li>
+           
           <li class="nav-item">
              <a class="nav-link" id="payments-tab" data-toggle="tab" href="#payments" role="tab" aria-controls="payments" aria-selected="false"><i class="icofont-credit-card"></i> Payments</a>
           </li>
@@ -40,5 +47,3 @@
        </ul>
     </div>
  </div>
-
- 
